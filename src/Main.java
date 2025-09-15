@@ -9,32 +9,11 @@ public class Main {
         System.out.println("2. Depositar");
         System.out.println("3. Sacar");
         System.out.println("4. Transferir");
-    }
 
-    public static int deposito(){
-        Scanner quantidade = new Scanner(System.in);
-        System.out.println("");
-        return 0;
+        transactions.transferencia();
     }
-
-    public static int sistema(){
-        Scanner int action = new scanner(System.in);
-        action.nextLine();
-        if (action == 1){
-            System.out.println("gay ahh");
-        }
-        else if (action == 2){
-            System.out.println("gay ahh");
-        }
-        else if (action == 3){
-            System.out.println("gay ahh");
-        }
-        else if (action == 4){
-            System.out.println("gay ahh");
-        }
-        else {
-            System.out.println("Escolha uma ação para continuar.");
-        }
-        return action;
+    public static int balance(){
+        int saldo = 0;
+        return saldo;
     }
 }
