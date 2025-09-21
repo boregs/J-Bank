@@ -12,6 +12,7 @@ public class Main {
         System.out.println("2. Depositar");
         System.out.println("3. Sacar");
         System.out.println("4. Transferir");
+        System.out.println("5. Sair");
 
         Scanner scanner = new Scanner(System.in);
         int acao = -1;
@@ -26,15 +27,20 @@ public class Main {
             mainsystem();
         } else if (acao == 2) {
             contabancaria minhaconta = new contabancaria();
-            minhaconta.deposito();
+            minhaconta.depositar();
             mainsystem();
         } else if (acao == 3) {
             contabancaria minhaconta = new contabancaria();
             minhaconta.saque();
             mainsystem();
         } else if (acao == 4) {
-            //transactions.transferencia();
-        } else {
+            contabancaria minhaconta = new contabancaria();
+            minhaconta.transferencia();
+        }else if (acao == 5){
+            System.out.println("Volte sempre!");
+
+        }
+        else {
             System.out.println("ERRO: Operação invalida.");
         }
         scanner.close();
