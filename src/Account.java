@@ -1,40 +1,37 @@
 import java.util.Scanner;
-public class contabancaria {
-   private double saldo;
-
-   public double getSaldo(){
-       saldo = 0;
-       System.out.println("Seu saldo é: " + saldo);
-       return saldo;
-   }
+public class Account {
+    private double saldo = 0;
 
    //depositar na conta
    public void depositar(){
        Scanner scan = new Scanner(System.in);
        System.out.print("Valor do deposito: ");
-       double valor = scan.nextInt();
+       double valor = scan.nextDouble();
        if (valor >= 0){
-           saldo += valor;
+           this.saldo += valor;
            System.out.println("Deposito realizado com sucesso!");
        } else{
            System.out.println("Digite um valor valido para deposito.");
        }
-       System.out.println("Seu saldo agora é: " + saldo);
+       System.out.println("Seu saldo agora é: " + this.saldo);
    }
    //sacar dinheiro da conta
     public void saque(){
         Scanner scan = new Scanner(System.in);
         System.out.print("Valor do saque: ");
-        double valor = scan.nextInt();
-       if (valor >= 0){
-            saldo -= valor;
-            System.out.println("Saque realizado com sucesso!");
-            System.out.println("Seu saldo agora é: " + saldo);
-        } else if(valor > saldo){
+        double valor = scan.nextDouble();
+        if (valor > saldo){
+            scan.close();
             System.out.println("Valor de saque maior que saldo da conta.");
+        } else if (valor >= 0){
+           saldo -= valor;
+           System.out.println("Saque realizado com sucesso!");
+           System.out.println("Seu saldo agora é: " + saldo);
+           System.out.println("Valor de saque maior que saldo da conta.");
         }else{
             System.out.println("Digite um valor valido para sacar.");
         }
+
     }
     // transferir dinheiro para alguem
     public void transferencia(){
@@ -68,5 +65,8 @@ public class contabancaria {
         }else{
             System.out.println("ERRO: Digite um valor valido para transferir.");
         }
+    }
+    public void getSaldo(){
+        System.out.println("Seu saldo é: " + saldo);
     }
 }
