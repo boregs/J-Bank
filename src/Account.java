@@ -21,7 +21,6 @@ public class Account {
         System.out.print("Valor do saque: ");
         double valor = scan.nextDouble();
         if (valor > saldo){
-            scan.close();
             System.out.println("Valor de saque maior que saldo da conta.");
         } else if (valor >= 0){
            saldo -= valor;
