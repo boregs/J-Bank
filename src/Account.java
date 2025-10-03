@@ -48,24 +48,32 @@ public class Account {
             System.out.println("ERRO: Escolha um metodo de transferencia disponivel.");
         }
 
-        System.out.println("Destinatario: ");
-        String destinatario = scan.nextLine(); // isso nao funciona | nao apresenta a parte de digitar o destinatario
-                                               // printando tudo e indo direto para o valor
-        //System.out.println("Destinatario escolhido: " + destinatario);
+        destinatariotransf();
 
-        System.out.println("Qual valor deseja transferir: ");
+        System.out.println("Valor da transferencia:");
         double valor = scan.nextInt();
-        if (valor >= 0){
+        if (valor < saldo){
             saldo -= valor;
-            System.out.println("Transferencia de R$" + valor + " para o destinatario " + destinatario + " realizada com sucesso");
+            System.out.println("Transferencia de R$" + valor + " realizada com sucesso");
             System.out.println("Seu saldo agora é: " + saldo);
         } else if(valor > saldo){
             System.out.println("ERRO: Valor para transferir maior que saldo da conta");
         }else{
             System.out.println("ERRO: Digite um valor valido para transferir.");
         }
+
     }
     public void getSaldo(){
         System.out.println("Seu saldo é: " + saldo);
+    }
+
+    public void destinatariotransf(){
+       Scanner scann = new Scanner(System.in);
+       System.out.println("Para quem deseja transferir? ");
+        String dest = scann.nextLine();
+        if (dest == null){
+            System.out.println("ERRO: Escolha um destinatario válido");
+
+        }
     }
 }
